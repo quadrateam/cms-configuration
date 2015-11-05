@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+    <parameter>
+        <code>AMOUNT</code>
+    </parameter>
+    <parameter>
+        <code>AMOUNTS</code>
+    </parameter>
+    ...
+</parameters>

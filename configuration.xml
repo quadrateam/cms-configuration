@@ -1,438 +1,538 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-    <!-- xml schema version -->
-    <version>1.0.3</version>
+    <!-- SEMVER version format -->
+    <version>1.0.4</version>
 
-    <!-- currency listing -->
-    <currencies>
-        <currency>
-            <code>EUR</code>
+    <!-- Integration modes -->
+    <modes>
+        <mode>
+            <code>directlink</code>
             <labels>
-                <!-- Translations -->
-                <label language="en">Euro</label>
+                <label language="fr">Serveur à serveur</label>
             </labels>
-        </currency>
-        <currency>
-            <code>USD</code>
+        </mode>
+        <mode>
+            <code>form</code>
             <labels>
-                <label language="en">Dollar</label>
+                <label language="fr">Formulaire</label>
             </labels>
-        </currency>
-        ...
-    </currencies>
+        </mode>
+        <mode>
+            <code>form-iframe</code>
+            <labels>
+                <label language="fr">Formulaire dans une iframe</label>
+            </labels>
+        </mode>
+        <mode>
+            <code>redirect</code>
+            <labels>
+                <label language="fr">Redirection vers le site du fournisseur</label>
+            </labels>
+        </mode>
+        <mode>
+            <code>direct-submit</code>
+            <labels>
+                <label language="fr">Soumission POST directe</label>
+            </labels>
+        </mode>
+    </modes>
 
-    <!-- payment method listing listing -->
-    <payment_methods>
-        <payment_method>
+    <!-- Available operations -->
+    <operations>
+        <operation>
+            <code>payment</code>
+            <labels>
+                <label language="fr">Paiement</label>
+            </labels>
+        </operation>
+        <operation>
+            <code>authorization</code>
+            <labels>
+                <label language="fr">Authorisation</label>
+            </labels>
+        </operation>
+        <operation>
+            <code>capture</code>
+            <labels>
+                <label language="fr">Capture</label>
+            </labels>
+        </operation>
+        <operation>
+            <code>REFUND_MULTIPLE</code>
+            <labels>
+                <label language="fr">Operations multiples</label>
+            </labels>
+        </operation>
+        <operation>
+            <code>REFUND_PARTIAL</code>
+            <labels>
+                <label language="fr">Operations partielles</label>
+            </labels>
+        </operation>
+    </operations>
+
+    <!-- Available options-->
+    <options>
+        <option>
+            <code>3dsecure</code>
+            <labels>
+                <label language="fr">3D Secure</label>
+            </labels>
+            <!--
+                custom fields for options
+                1st set of expected tags are:
+                <code> => the unique option id
+                <required> => yes => the parameters is mandatory (this tag could be absent or set to 'no')
+                <absent> => yes => the parameter should not be present (allow parameter_set overriding) (this tag could be absent or set to 'no')
+            -->
+            <parameters>
+                <parameter>
+                    <code>3DSECURE</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>3DSECUREDISPLAYMODE</code>
+                    <required>yes</required>
+                </parameter>
+            </parameters>
+        </option>
+
+        <option>
+            <code>ntimes</code>
+            <labels>
+                <label language="fr">Paiement fractionnée</label>
+            </labels>
+            <parameters>
+                <parameter>
+                    <code>AMOUNT</code>
+                    <!-- Override the default operation parameter set: here indicate to remove the parameter AMOUNT -->
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>AMOUNTS</code>
+                    <required>yes</required>
+                </parameter>
+            </parameters>
+        </option>
+
+        <option>
+            <code>oneclick</code>
+            <labels>
+                <label language="fr">Paiement en un click</label>
+            </labels>
+            <parameters>
+                <parameter>
+                    <code>ALIAS</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>ALIASMODE</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CARDCODE</code>
+                    <!-- Another overriding -->
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CARDCVV</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CARDVALIDITYDATE</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CARDFULLNAME</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CLIENTIP</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CLIENTREFERRER</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CLIENTUSERAGENT</code>
+                    <required>yes</required>
+                </parameter>
+            </parameters>
+        </option>
+
+        <option>
+            <code>oneclickcvv</code>
+            <labels>
+                <label language="fr">Paiement en un click avec saisie du cryptogramme</label>
+            </labels>
+            <parameters>
+                <parameter>
+                    <code>ALIAS</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>ALIASMODE</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CARDCODE</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <!-- CVV is mandatory for 1click + cvv -->
+                    <code>CARDCVV</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CARDVALIDITYDATE</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CARDFULLNAME</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>CLIENTIP</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CLIENTREFERRER</code>
+                    <required>yes</required>
+                </parameter>
+                <parameter>
+                    <code>CLIENTUSERAGENT</code>
+                    <required>yes</required>
+                </parameter>
+            </parameters>
+        </option>
+        <option>
+            <code>displaycreatealias</code>
+            <labels>
+                <label language="fr">Laisser le porteur choisir la mémorisation de ses donnés cartes</label>
+            </labels>
+            <parameters>
+                <parameter>
+                    <code>CREATEALIAS</code>
+                    <absent>yes</absent>
+                </parameter>
+                <parameter>
+                    <code>DISPLAYCREATEALIAS</code>
+                    <required>yes</required>
+                </parameter>
+            </parameters>
+        </option>
+    </options>
+
+    <!-- Account types definfintion -->
+    <account_types>
+        <account_type>
             <code>cbvisamc-fr</code>
             <logo_url>http://site/logo.jpg</logo_url>
             <labels>
                 <label language="en">CB - VISA - MC (French zone)</label>
             </labels>
-            <!-- Payment method allowed currencies-->
+
+            <!-- Available currencies -->
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-        </payment_method>
-        <payment_method>
-            <code>visamc-notfr</code>
-            <logo_url>http://site/logo.jpg</logo_url>
-            <labels>
-                <label language="en">VISA - MC (International zone)</label>
-            </labels>
-            <currencies>
-                <currency>EUR</currency>
-                <currency>GBP</currency>
-                <currency>CHF</currency>
-            </currencies>
-        </payment_method>
-        <payment_method>
-            <code>amex</code>
-            <logo_url>http://site/logo.jpg</logo_url>
-            <label language="fr">
-                <label language="en">Amex</label>
-            </label>
-            <currencies>
-                <currency>EUR</currency>
-                <currency>GBP</currency>
-            </currencies>
-        </payment_method>
-        ...
-    </payment_methods>
 
-    <!-- Different be2bill API integration modes -->
-    <integration_modes>
-        <integration_mode>
-            <code>directlink</code>
-            <labels>
-                <label language="fr">Serveur à serveur</label>
-            </labels>
-        </integration_mode>
-        <integration_mode>
-            <code>form</code>
-            <labels>
-                <label language="fr">Formulaire</label>
-            </labels>
-        </integration_mode>
-        <integration_mode>
-            <code>form-iframe</code>
-            <labels>
-                <label language="fr">Formulaire dans une iframe</label>
-            </labels>
-        </integration_mode>
-        <integration_mode>
-            <code>redirect</code>
-            <labels>
-                <label language="fr">Redirection vers le site du fournisseur</label>
-            </labels>
-        </integration_mode>
-        <integration_mode>
-            <code>direct-submit</code>
-            <labels>
-                <label language="fr">Soumission POST directe</label>
-            </labels>
-        </integration_mode>
-    </integration_modes>
-
-    <!-- Differents Be2bill operation types -->
-    <operation_types>
-        <operation_type>
-            <code>payment</code>
-            <labels>
-                <label language="fr">Paiement</label>
-            </labels>
-        </operation_type>
-        <operation_type>
-            <code>authorization</code>
-            <labels>
-                <label language="fr">Authorisation</label>
-            </labels>
-        </operation_type>
-        <operation_type>
-            <code>capture</code>
-            <labels>
-                <label language="fr">Capture</label>
-            </labels>
-        </operation_type>
-        <operation_type>
-            <code>credit</code>
-            <labels>
-                <label language="fr">Credit</label>
-            </labels>
-        </operation_type>
-        <operation_type>
-            <code>refund</code>
-            <labels>
-                <label language="fr">Remboursement</label>
-            </labels>
-        </operation_type>
-    </operation_types>
-
-    <!-- Cumulative options for different operations -->
-    <operation_options>
-        <operation_option>
-            <code>3DSECURE</code>
-            <labels>
-                <label language="fr">3DSECURE</label>
-            </labels>
-        </operation_option>
-        <operation_option>
-            <code>ONECLICK_REBILL</code>
-            <labels>
-                <label language="fr">Operation en 1 click</label>
-            </labels>
-        </operation_option>
-        <operation_option>
-            <code>NTIME</code>
-            <labels>
-                <label language="fr">Operation fractionnée</label>
-            </labels>
-        </operation_option>
-        <!-- Just for refund -->
-        <operation_option>
-            <code>MULTIPLE</code>
-            <labels>
-                <label language="fr">Operations multiples</label>
-            </labels>
-        </operation_option>
-        <!-- Just for refund -->
-        <operation_option>
-            <code>PARTIAL</code>
-            <labels>
-                <label language="fr">Operations partielles</label>
-            </labels>
-        </operation_option>
-    </operation_options>
-
-    <!-- Different operation configurations (by payment_method/operation_type) -->
-    <operations>
-        <operation>
-            <payment_method>visamc-notfr</payment_method>
-            <operation_type>payment</operation_type>
-            <be2bill_api_version>3.0</be2bill_api_version>
-
-            <!-- Logo specification could be overwritten here -->
-            <logo_url>http://site/logo.jpg</logo_url>
+            <!-- Available countries -->
+            <countries>
+                <country>FR</country>
+            </countries>
 
             <!-- Compatible integration modes -->
-            <integration_modes>
-                <integration_mode>form</integration_mode>
-                <integration_mode>form-iframe</integration_mode>
-                <integration_mode>directlink</integration_mode>
-            </integration_modes>
+            <modes>
+                <mode>form</mode>
+                <mode>form-iframe</mode>
+                <mode>directlink</mode>
+            </modes>
 
-            <!-- Compatible options -->
-            <operation_options>
-                <operation_option>
-                    <code>3DSECURE</code>
-                </operation_option>
-                <operation_option>
-                    <code>ONECLICK_REBILL</code>
-                </operation_option>
-                <operation_option>
-                    <code>SUBSCRIPTION_REBILL</code>
-                    <!-- Logo specification could be overwritten here too -->
-                    <logo_url>http://site/logo.jpg</logo_url>
-                </operation_option>
-            </operation_options>
+            <!-- Defines a parameter set for an operation -->
+            <parameter_sets>
+                <parameter_set>
+                    <be2bill_api_version>2.0</be2bill_api_version>
+                    <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
-            <!-- Parameter list -->
-            <parameters>
-                <parameter>
-                    <name>3DSECURE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>3DSECUREDISPLAYMODE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>AGEVERIFICATION</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>ALIAS</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>ALIASMODE</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>AMOUNT</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>AMOUNTS</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>ASKIBAN</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>BIC</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGADDRESS</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGCOUNTRY</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGFIRSTNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGLASTNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGMOBILEPHONE</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGPHONE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>BILLINGPOSTALCODE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CARDFULLNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CART_DISCOUNT</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CART_MERCHANTITEMID</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CART_NAME</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CART_PRICE</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CART_QUANTITY</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CART_TAX</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTADDRESS</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTDOB</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTEMAIL</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTGENDER</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTIDENT</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTIP</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTREFERRER</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CLIENTUSERAGENT</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>CREATEALIAS</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>DESCRIPTION</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>DISPLAYCREATEALIAS</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>EXTRADATA</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>HASH</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>HIDECARDFULLNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>HIDECLIENTEMAIL</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>IBAN</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>IBANORIGIN</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>IDENTIFICATIONDOCID</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>IDENTIFICATIONDOCTYPE</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>IDENTIFIER</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>LANGUAGE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>METADATA</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>OPERATIONTYPE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>ORDERID</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOADDRESS</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOCOUNTRY</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOFIRSTNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOLASTNAME</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOPHONE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>SHIPTOPOSTALCODE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>TIMEZONE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>TRANSACTIONEXPIRATIONDATE</name>
-                    <required>yes</required>
-                </parameter>
-                <parameter>
-                    <name>TRANSACTIONID</name>
-                    <required>no</required>
-                </parameter>
-                <parameter>
-                    <name>VERSION</name>
-                    <required>yes</required>
-                </parameter>
+                    <!-- Parameter set concerned operations -->
+                    <operations>
+                        <operation>payment</operation>
+                        <operation>authorization</operation>
+                    </operations>
 
-            </parameters>
-        </operation>
-        <operation>
-            <!-- to complete -->
+                    <!-- Parameter set's compatible options -->
+                    <options>
+                        <option>3dsecure</option>
+                        <option>ntime</option>
+                        <option>1click</option>
+                        <option>1clickcvv</option>
+                        <option>displaycreatealias</option>
+                    </options>
+
+                    <!--
+                     The parameter list
+                     Only specifies concerned parameters (by account type + operation type)
+                     possible tags
+                      <code>
+                      <required> yes/no
+
+                      Parameters can be overwritten with <options> section
+                    -->
+                    <parameters>
+                        <parameter>
+                            <code>AMOUNT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGCOUNTRY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGFIRSTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGLASTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGMOBILEPHONE</code>
+                            <required>no</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPHONE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOCITY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CARDFULLNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTEMAIL</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTIDENT</code>
+                            <required>yes</required>
+                        </parameter>
+                        ...
+                    </parameters>
+                </parameter_set>
+            </parameter_sets>
+        </account_type>
+    </account_types>
+
+    <account_type>
+        <code>klarnainvoice</code>
+        <logo_url>http://site/logo.jpg</logo_url>
+        <labels>
+            <label language="en">Klarna Invoice</label>
+        </labels>
+
+        <!-- Available currencies -->
+        <currencies>
             ...
-        </operation>
-        ...
-    </operations>
+        </currencies>
+
+        <!-- Compatible integration modes -->
+        <modes>
+            <mode>directsubmit</mode>
+        </modes>
+
+        <parameter_sets>
+            <!-- Klarna parameter set 1 based on a country list -->
+            <parameter_set>
+                <be2bill_api_version>3.0</be2bill_api_version>
+                <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+
+                <!-- Parameter set concerned operations -->
+                <operations>
+                    <operation>payment</operation>
+                    <operation>authorization</operation>
+                </operations>
+
+                <!-- Available countries -->
+                <countries>
+                    <country>AT</country>
+                    <country>DE</country>
+                    <country>NL</country>
+                    <country>GB</country>
+                    <country>US</country>
+                </countries>
+
+                <!-- Parameter set's compatible options -->
+                <options>
+                </options>
+
+                <!--
+                 The parameter list
+                 Only specifies concerned parameters (by account type + operation type)
+                 possible tags
+                  <code>
+                  <required> yes/no
+
+                  Parameters can be overwritten with <options> section
+                -->
+                <parameters>
+                    <parameter>
+                        <code>AMOUNT</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGADDRESS</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGCOUNTRY</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGFIRSTNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGLASTNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGMOBILEPHONE</code>
+                        <required>no</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGPHONE</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGPOSTALCODE</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>SHIPTOCITY</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CARDFULLNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CLIENTEMAIL</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CLIENTIDENT</code>
+                        <required>yes</required>
+                    </parameter>
+                    ...
+                </parameters>
+            </parameter_set>
+
+            <!-- Klarna parameter set 2 based on a country list -->
+            <parameter_set>
+                <be2bill_api_version>3.0</be2bill_api_version>
+                <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+
+                <!-- Parameter set concerned operations -->
+                <operations>
+                    <operation>payment</operation>
+                    <operation>authorization</operation>
+                </operations>
+
+                <!-- Parameter set's compatible options -->
+                <options>
+                </options>
+
+                <countries>
+                    <country>DK</country>
+                    <country>FI</country>
+                    <country>NO</country>
+                    <country>SE</country>
+                </countries>
+
+                <!--
+                 The parameter list
+                 Only specifies concerned parameters (by account type + operation type)
+                 possible tags
+                  <code>
+                  <required> yes/no
+
+                  Parameters can be overwritten with <options> section
+                -->
+                <parameters>
+                    <parameter>
+                        <code>AMOUNT</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGADDRESS</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGCOUNTRY</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGFIRSTNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGLASTNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGMOBILEPHONE</code>
+                        <required>no</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGPHONE</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>BILLINGPOSTALCODE</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>SHIPTOCITY</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CARDFULLNAME</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CLIENTEMAIL</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>CLIENTIDENT</code>
+                        <required>yes</required>
+                    </parameter>
+                    ...
+                    <!-- Special case for klarna by country exceptions -->
+                    <parameter>
+                        <code>IDENTIFICATIONDOCID</code>
+                        <required>yes</required>
+                    </parameter>
+                    <parameter>
+                        <code>IDENTIFICATIONDOCTYPE</code>
+                        <required>yes</required>
+                    </parameter>
+
+                </parameters>
+            </parameter_set>
+        </parameter_sets>
+    </account_type>
 </configuration>
