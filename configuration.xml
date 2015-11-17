@@ -4,10 +4,6 @@
     - Add translations
     - Defines logo url
 
-    QUESTIONS:
-    - How to handle CARD* parameters with different modes (directlink vs form)?
-    - How to handle HIDECARDFULLNAME and HIDECLIENTEMAIL
-    - Modes déplacés dans parameter_set (pour gerer different type de params selon mode)
 -->
 <configuration>
     <!-- SEMVER version format -->
