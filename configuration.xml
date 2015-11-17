@@ -694,11 +694,11 @@
                 </parameter_set>
             </parameter_sets>
         </account_type>
-        <account_type description="cbvisamc-notfr">
-            <code>cbvisamc-notfr</code>
+        <account_type description="visamc-notfr">
+            <code>visamc-notfr</code>
             <logo_url>http://site/logo.jpg</logo_url>
             <labels>
-                <label language="fr">CB - VISA - MC (Zone internationale)</label>
+                <label language="fr">VISA - MC (Zone internationale)</label>
             </labels>
 
             <!-- Compatible integration modes -->
