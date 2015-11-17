@@ -7,6 +7,9 @@
         <code>3DSECUREDISPLAYMODE</code>
     </parameter>
     <parameter>
+        <code>AGEVERIFICATION</code>
+    </parameter>
+    <parameter>
         <code>ALIAS</code>
     </parameter>
     <parameter>
