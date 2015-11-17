@@ -4,6 +4,9 @@
     - Add translations
     - Defines logo url
 
+    QUESTIONS:
+    - cbvisanotfr => country list?
+
 -->
 <configuration>
     <!-- SEMVER version format -->
@@ -632,6 +635,242 @@
                 <!-- capture and refund -->
                 <parameter_set description="capture/refund">
                     <be2bill_api_version>2.0</be2bill_api_version>
+                    <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>directlink</mode>
+                    </modes>
+
+                    <!-- Parameter set concerned operations -->
+                    <operations>
+                        <operation>capture</operation>
+                        <operation>refund</operation>
+                        <operation>partial-refund</operation>
+                        <operation>multiple-refund</operation>
+                    </operations>
+
+                    <!-- Parameter set's compatible options -->
+                    <options></options>
+
+                    <parameters>
+                        <parameter>
+                            <code>AMOUNT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>DESCRIPTION</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>EXTRADATA</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>HASH</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>IDENTIFIER</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>OPERATIONTYPE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>ORDERID</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>TRANSACTIONID</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>VERSION</code>
+                            <required>yes</required>
+                        </parameter>
+                    </parameters>
+                </parameter_set>
+            </parameter_sets>
+        </account_type>
+        <account_type description="cbvisamc-notfr">
+            <code>cbvisamc-notfr</code>
+            <logo_url>http://site/logo.jpg</logo_url>
+            <labels>
+                <label language="fr">CB - VISA - MC (Zone internationale)</label>
+            </labels>
+
+            <!-- Compatible integration modes -->
+            <modes>
+                <mode>form</mode>
+                <mode>form-iframe</mode>
+                <mode>directlink</mode>
+            </modes>
+
+            <currencies>
+                <currency>EUR</currency>
+            </currencies>
+
+            <!-- Available countries -->
+            <countries>
+                <!-- using all instead of empty list -->
+                <country>all</country>
+            </countries>
+
+            <!-- autho/payment -->
+            <parameter_sets>
+                <parameter_set description="autho/payment">
+                    <be2bill_api_version>3.0</be2bill_api_version>
+                    <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+
+                    <!-- Parameter set concerned operations -->
+                    <operations>
+                        <operation>authorization</operation>
+                        <operation>payment</operation>
+                    </operations>
+
+                    <!-- Parameter set's compatible options -->
+                    <options>
+                        <option>3dsecure</option>
+                        <option>oneclick</option>
+                        <option>displaycreatealias</option>
+                    </options>
+
+                    <parameters>
+                        <parameter>
+                            <code>AMOUNT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGCITY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGCOUNTRY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGFIRSTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGLASTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPHONE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTDOB</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTEMAIL</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTIDENT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <!-- create alias every time ? -->
+                        <parameter>
+                            <code>CREATEALIAS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>DESCRIPTION</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>EXTRADATA</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>HASH</code>
+                            <required>yes</required>
+                        </parameter>
+                        <!-- should be set to "no" -->
+                        <parameter>
+                            <code>HIDECARDFULLNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <!-- should be set to "yes" -->
+                        <parameter>
+                            <code>HIDECLIENTEMAIL</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>IDENTIFIER</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>LANGUAGE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>METADATA</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>OPERATIONTYPE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>ORDERID</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOCITY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOCOUNTRY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOFIRSTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOLASTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOPHONE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>VERSION</code>
+                            <required>yes</required>
+                        </parameter>
+                    </parameters>
+                </parameter_set>
+
+                <!-- capture and refund -->
+                <parameter_set description="capture/refund">
+                    <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
                     <!-- Compatible integration modes -->
