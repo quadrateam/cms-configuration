@@ -25,6 +25,9 @@
         <code>ASKIBAN</code>
     </parameter>
     <parameter>
+        <code>BIC</code>
+    </parameter>
+    <parameter>
         <code>BILLINGADDRESS</code>
     </parameter>
     <!-- VERSION = 3.0 -->
