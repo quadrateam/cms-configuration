@@ -711,6 +711,7 @@
                 </parameter_set>
             </parameter_sets>
         </account_type>
+
         <account_type description="visamc-notfr">
             <code>visamc-notfr</code>
             <logo_url>http://site/logo.jpg</logo_url>
@@ -785,6 +786,30 @@
                         </parameter>
                         <parameter>
                             <code>BILLINGPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][DISCOUNT]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][MERCHANTITEMID]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][NAME]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][PRICE]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][QUANTITY]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][TAX]</code>
                             <required>yes</required>
                         </parameter>
                         <parameter>
@@ -1542,6 +1567,30 @@
                             <required>yes</required>
                         </parameter>
                         <parameter>
+                            <code>CART[N][DISCOUNT]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][MERCHANTITEMID]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][NAME]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][PRICE]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][QUANTITY]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][TAX]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
                             <code>CLIENTADDRESS</code>
                             <required>yes</required>
                         </parameter>
@@ -1719,6 +1768,30 @@
                             <required>yes</required>
                         </parameter>
                         <parameter>
+                            <code>CART[N][DISCOUNT]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][MERCHANTITEMID]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][NAME]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][PRICE]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][QUANTITY]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][TAX]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
                             <code>CLIENTADDRESS</code>
                             <required>yes</required>
                         </parameter>
@@ -1890,6 +1963,30 @@
                         </parameter>
                         <parameter>
                             <code>BILLINGPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][DISCOUNT]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][MERCHANTITEMID]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][NAME]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][PRICE]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][QUANTITY]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][TAX]</code>
                             <required>yes</required>
                         </parameter>
                         <parameter>
