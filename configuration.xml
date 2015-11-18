@@ -1531,7 +1531,7 @@
                             <required>yes</required>
                         </parameter>
                         <parameter>
-                            <!-- Should be set to yes -->
+                            <!-- Should be set to no -->
                             <code>ASKIBAN</code>
                             <required>yes</required>
                         </parameter>
