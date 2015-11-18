@@ -3,10 +3,10 @@
     TODO:
     - Add translations
     - Defines logo url
+    - validate klarna currencies
 
     QUESTIONS:
     - cbvisanotfr => country list?
-    - validate klarna currencies
     - quid de klarn + params spéciaux pour DK, FI, NO, SE
 
     CHANGELOG
