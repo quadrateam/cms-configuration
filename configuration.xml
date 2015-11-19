@@ -11,10 +11,10 @@
     CHANGELOG
     - countries = all
     - currencies = all
-    - move currencies in paramters set to manage klarna case
+    - move countries in paramters set to manage klarna case
     - move modes in paramters for having all modes at the same level
 -->
-<configuration>
+<configuration xmlns="http://www.be2bill.com">
     <!-- SERVER version format -->
     <version>0.0.1</version>
 
