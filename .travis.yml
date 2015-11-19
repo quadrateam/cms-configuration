@@ -2,5 +2,4 @@ language: php
 php:
   - 5.5
 script:
-  - xmllint --noout configuration.xml
-  - xmllint --noout parameter_reference.xml
+  - xmllint --noout --schema configuration.xsd configuration.xml
