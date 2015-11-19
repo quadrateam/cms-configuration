@@ -7,14 +7,15 @@
 
     QUESTIONS:
     - cbvisanotfr => country list?
-    - quid de klarn + params spéciaux pour DK, FI, NO, SE
 
     CHANGELOG
     - countries = all
     - currencies = all
+    - move currencies in paramters set to manage klarna case
+    - move modes in paramters for having all modes at the same level
 -->
 <configuration>
-    <!-- SEMVER version format -->
+    <!-- SERVER version format -->
     <version>0.0.1</version>
 
     <!-- Integration modes -->
@@ -241,10 +242,10 @@
                 <label language="fr">Verification de l'age</label>
             </labels>
             <parameters>
-            <parameter>
-                <code>AGEVERIFICATION</code>
-                <required>yes</required>
-            </parameter>
+                <parameter>
+                    <code>AGEVERIFICATION</code>
+                    <required>yes</required>
+                </parameter>
             </parameters>
         </option>
     </options>
@@ -258,28 +259,28 @@
                 <label language="fr">CB - VISA - MC (Zone france)</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-                <mode>directlink</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <!-- using all instead of empty list -->
-                <country>all</country>
-            </countries>
 
             <!-- autho/payment -->
             <parameter_sets>
                 <parameter_set description="autho/payment">
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+            
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                        <mode>directlink</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -424,6 +425,12 @@
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+
                     <!-- Compatible integration modes -->
                     <modes>
                         <mode>directlink</mode>
@@ -489,29 +496,29 @@
                 <label language="fr">CB - VISA - MC (Zone france)</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-                <mode>directlink</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <!-- using all instead of empty list -->
-                <country>all</country>
-            </countries>
 
             <!-- autho/payment -->
             <parameter_sets>
                 <parameter_set description="autho/payment">
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
 
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                        <mode>directlink</mode>
+                    </modes>
+            
                     <!-- Parameter set concerned operations -->
                     <operations>
                         <operation>authorization</operation>
@@ -654,6 +661,12 @@
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+            
                     <!-- Compatible integration modes -->
                     <modes>
                         <mode>directlink</mode>
@@ -719,22 +732,9 @@
                 <label language="fr">VISA - MC (Zone internationale)</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-                <mode>directlink</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <!-- using all instead of empty list -->
-                <country>all</country>
-            </countries>
 
             <!-- autho/payment -->
             <parameter_sets>
@@ -742,6 +742,19 @@
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                        <mode>directlink</mode>
+                    </modes>
+            
                     <!-- Parameter set concerned operations -->
                     <operations>
                         <operation>authorization</operation>
@@ -919,6 +932,12 @@
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+
                     <!-- Compatible integration modes -->
                     <modes>
                         <mode>directlink</mode>
@@ -983,26 +1002,27 @@
                 <label language="fr">Paypal</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>directlink</mode>
-            </modes>
-
             <currencies>
                 <currency>all</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <!-- using all instead of empty list -->
-                <country>all</country>
-            </countries>
 
             <!-- autho/payment -->
             <parameter_sets>
                 <parameter_set description="autho/payment">
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>directlink</mode>
+                    </modes>
+            
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -1126,6 +1146,12 @@
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
 
+                    <!-- Available countries -->
+                    <countries>
+                        <!-- using all instead of empty list -->
+                        <country>all</country>
+                    </countries>
+
                     <!-- Compatible integration modes -->
                     <modes>
                         <mode>directlink</mode>
@@ -1184,31 +1210,35 @@
             </parameter_sets>
         </account_type>
         <account_type description="bcmc">
-            <code>cbvisamc-fr</code>
+            <code>bcmc</code>
             <logo_url>http://site/logo.jpg</logo_url>
             <labels>
                 <label language="fr">Bancontact Mistercash</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-            </modes>
+
 
             <currencies>
                 <currency>EUR</currency>
             </currencies>
 
-            <!-- Available countries -->
-            <countries>
-                <country>BE</country>
-            </countries>
+
 
             <parameter_sets>
                 <parameter_set description="payment">
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>BE</country>
+                    </countries>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -1345,25 +1375,25 @@
                 <label language="fr">Ideal</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <country>NL</country>
-            </countries>
 
             <parameter_sets>
                 <parameter_set description="payment">
                     <be2bill_api_version>2.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>NL</country>
+                    </countries>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -1494,26 +1524,26 @@
                 <label language="fr">Giropay</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>form</mode>
-                <mode>form-iframe</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
             </currencies>
-
-            <!-- Available countries -->
-            <countries>
-                <country>DE</country>
-            </countries>
 
             <!-- payment -->
             <parameter_sets>
                 <parameter_set description="payment">
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>DE</country>
+                    </countries>
+
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>form</mode>
+                        <mode>form-iframe</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -1691,11 +1721,6 @@
                 <label language="fr">Sofort</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>direct-submit</mode>
-            </modes>
-
             <currencies>
                 <currency>EUR</currency>
                 <currency>CHF</currency>
@@ -1703,25 +1728,30 @@
                 <currency>GBP</currency>
             </currencies>
 
-            <!-- Available countries -->
-            <countries>
-                <country>DE</country>
-                <country>AT</country>
-                <country>CH</country>
-                <country>BE</country>
-                <country>NL</country>
-                <country>IT</country>
-                <country>ES</country>
-                <country>GB</country>
-                <country>FR</country>
-                <country>PL</country>
-            </countries>
-
             <!-- payment -->
             <parameter_sets>
                 <parameter_set description="payment">
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>DE</country>
+                        <country>AT</country>
+                        <country>CH</country>
+                        <country>BE</country>
+                        <country>NL</country>
+                        <country>IT</country>
+                        <country>ES</country>
+                        <country>GB</country>
+                        <country>FR</country>
+                        <country>PL</country>
+                    </countries>
+                    
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>direct-submit</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -1887,10 +1917,7 @@
                 <label language="fr">Klarna Invoice</label>
             </labels>
 
-            <!-- Compatible integration modes -->
-            <modes>
-                <mode>direct-submit</mode>
-            </modes>
+
 
             <currencies>
                 <currency>EUR</currency>
@@ -1902,24 +1929,27 @@
                 <currency>GBP</currency>
             </currencies>
 
-            <!-- Available countries -->
-            <countries>
-                <country>AT</country>
-                <country>DK</country>
-                <country>FI</country>
-                <country>NO</country>
-                <country>SE</country>
-                <country>DE</country>
-                <country>NL</country>
-                <country>GB</country>
-                <country>US</country>
-            </countries>
+
 
             <!-- autho -->
             <parameter_sets>
                 <parameter_set description="authorization">
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>AT</country>
+                        <country>DE</country>
+                        <country>NL</country>
+                        <country>GB</country>
+                        <country>US</country>
+                    </countries>
+                    
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>direct-submit</mode>
+                    </modes>
 
                     <!-- Parameter set concerned operations -->
                     <operations>
@@ -2025,15 +2055,193 @@
                             <code>IDENTIFIER</code>
                             <required>yes</required>
                         </parameter>
-                        <!-- how to handle this field for DK,FI,NO,SE -->
                         <parameter>
                             <code>IDENTIFICATIONDOCID</code>
                             <required>no</required>
                         </parameter>
-                        <!-- how to handle this field for DK,FI,NO,SE -->
                         <parameter>
                             <code>IDENTIFICATIONDOTYPE</code>
                             <required>no</required>
+                        </parameter>
+                        <parameter>
+                            <code>LANGUAGE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>METADATA</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>OPERATIONTYPE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>ORDERID</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOCITY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOCOUNTRY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOFIRSTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOLASTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOPHONE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>SHIPTOPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>VERSION</code>
+                            <required>yes</required>
+                        </parameter>
+                    </parameters>
+                </parameter_set>
+
+                <parameter_set description="authorization">
+                    <be2bill_api_version>3.0</be2bill_api_version>
+                    <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>DK</country>
+                        <country>FI</country>
+                        <country>NO</country>
+                        <country>SE</country>
+                    </countries>
+                    
+                    <!-- Compatible integration modes -->
+                    <modes>
+                        <mode>direct-submit</mode>
+                    </modes>
+
+                    <!-- Parameter set concerned operations -->
+                    <operations>
+                        <operation>authorization</operation>
+                    </operations>
+
+                    <!-- Parameter set's compatible options -->
+                    <options />
+
+                    <parameters>
+                        <parameter>
+                            <code>AMOUNT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGCITY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGCOUNTRY</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGFIRSTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGLASTNAME</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGMOBILEPHONE</code>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPHONE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>BILLINGPOSTALCODE</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][DISCOUNT]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][MERCHANTITEMID]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][NAME]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][PRICE]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][QUANTITY]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CART[N][TAX]</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTADDRESS</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTDOB</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTEMAIL</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTGENDER</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>CLIENTIDENT</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>DESCRIPTION</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>EXTRADATA</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>HASH</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>IDENTIFIER</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>IDENTIFICATIONDOCID</code>
+                            <required>yes</required>
+                        </parameter>
+                        <parameter>
+                            <code>IDENTIFICATIONDOTYPE</code>
+                            <required>yes</required>
                         </parameter>
                         <parameter>
                             <code>LANGUAGE</code>
@@ -2090,6 +2298,19 @@
                 <parameter_set description="capture/refund">
                     <be2bill_api_version>3.0</be2bill_api_version>
                     <logo_url>http://site/logo-simplepayment.jpg</logo_url>
+                    
+                    <!-- Available countries -->
+                    <countries>
+                        <country>AT</country>
+                        <country>DK</country>
+                        <country>FI</country>
+                        <country>NO</country>
+                        <country>SE</country>
+                        <country>DE</country>
+                        <country>NL</country>
+                        <country>GB</country>
+                        <country>US</country>
+                    </countries>
 
                     <!-- Compatible integration modes -->
                     <modes>
