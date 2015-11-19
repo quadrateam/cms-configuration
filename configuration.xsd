@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.be2bill.com" 
+            targetNamespace="http://www.be2bill.com" elementFormDefault="qualified">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+    
+    <xs:element name="configuration">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="version" minOccurs="1" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="modes" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="mode" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="code" type="tns:modeReference" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="labels" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="label" type="tns:stringLang" minOccurs="1" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>                  
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="operations" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="operation" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="code" type="tns:operationReference" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="labels" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="label" type="tns:stringLang" minOccurs="1" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element> 
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="options" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="option" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="code" type="tns:optionReference" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="labels" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="label" type="tns:stringLang" minOccurs="1" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element> 
+                                        <xs:element name="parameters" minOccurs="0" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="code" type="tns:parameterReference" minOccurs="1" maxOccurs="1"  />
+                                                                <xs:element name="required" type="tns:yesNo" minOccurs="0" maxOccurs="1" />
+                                                                <xs:element name="absent" type="tns:yesNo" minOccurs="0" maxOccurs="1" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="description" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="account_types" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="account_type" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="code" minOccurs="1" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string" />
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="logo_url" minOccurs="1" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string" />
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="labels" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="label" minOccurs="1" maxOccurs="unbounded">
+                
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element> 
+                                        <xs:element name="currencies" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="currency" type="tns:currency" minOccurs="1" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="parameter_sets" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="parameter_set" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="be2bill_api_version" minOccurs="1" maxOccurs="1">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="xs:float">
+                                                                            <xs:enumeration value="2.0"/>
+                                                                            <xs:enumeration value="3.0"/>
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="logo_url" minOccurs="1" maxOccurs="1">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="xs:string">
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="countries" minOccurs="1" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="country" type="tns:country" minOccurs="1" maxOccurs="unbounded"/>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="modes" minOccurs="1" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="mode" type="tns:modeReference" minOccurs="1" maxOccurs="unbounded" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="operations" minOccurs="1" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="operation" type="tns:operationReference" minOccurs="1" maxOccurs="unbounded" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="options" minOccurs="0" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="option" type="tns:optionReference" minOccurs="0" maxOccurs="unbounded" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="parameters" minOccurs="1" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="parameter" minOccurs="1" maxOccurs="unbounded">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="code" type="tns:parameterReference" minOccurs="1" maxOccurs="1" />
+                                                                                        <xs:element name="required" type="tns:yesNo"  minOccurs="0" maxOccurs="1" />
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="description" type="xs:string" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="description" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!--
+        Generic Types
+    -->
+    
+    <xs:complexType name="stringLang">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="language" type="xs:language" use="required">
+                    <xs:annotation>
+                        <xs:documentation>ISO 639-1 Langugage code</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>    
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="currency">
+        <xs:annotation>
+            <xs:documentation>ISO 4217 Currency Code or "all"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][A-Z][A-Z]|all"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="country">
+        <xs:annotation>
+            <xs:documentation>ISO 3166-1 alpha-2 Country Code or "all"</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][A-Z]|all"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="yesNo">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!--
+        Be2Bill References lists warehouse
+    -->
+    
+    <xs:simpleType name="modeReference">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="form"/>
+            <xs:enumeration value="form-iframe"/>
+            <xs:enumeration value="redirect"/>
+            <xs:enumeration value="directlink"/>
+            <xs:enumeration value="direct-submit"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="operationReference">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="authorization"/>
+            <xs:enumeration value="payment"/>
+            <xs:enumeration value="capture"/>
+            <xs:enumeration value="refund"/>
+            <xs:enumeration value="partial_refund"/>
+            <xs:enumeration value="multiple_refund"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="optionReference">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="3dsecure"/>
+            <xs:enumeration value="ntimes"/>
+            <xs:enumeration value="oneclick"/>
+            <xs:enumeration value="oneclickcvv"/>
+            <xs:enumeration value="displaycreatealias"/>
+            <xs:enumeration value="ageverification"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="parameterReference">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="3DSECURE"/>
+            <xs:enumeration value="3DSECUREDISPLAYMODE"/>
+            <xs:enumeration value="AGEVERIFICATION"/>
+            <xs:enumeration value="ALIAS"/>
+            <xs:enumeration value="ALIASMODE"/>
+            <xs:enumeration value="AMOUNT"/>
+            <xs:enumeration value="AMOUNTS"/>
+            <xs:enumeration value="ASKIBAN"/>
+            <xs:enumeration value="BIC"/>
+            <xs:enumeration value="BILLINGADDRESS"/>
+            <xs:enumeration value="BILLINGCITY"/>
+            <xs:enumeration value="BILLINGCOUNTRY"/>
+            <xs:enumeration value="BILLINGFIRSTNAME"/>
+            <xs:enumeration value="BILLINGLASTNAME"/>
+            <xs:enumeration value="BILLINGMOBILEPHONE"/>
+            <xs:enumeration value="BILLINGPHONE"/>
+            <xs:enumeration value="BILLINGPOSTALCODE"/>
+            <xs:enumeration value="CARDCODE"/>
+            <xs:enumeration value="CARDCVV"/>
+            <xs:enumeration value="CARDFULLNAME"/>
+            <xs:enumeration value="CARDVALIDITYDATE"/>
+            <xs:enumeration value="CART[N][DISCOUNT]"/>
+            <xs:enumeration value="CART[N][MERCHANTITEMID]"/>
+            <xs:enumeration value="CART[N][NAME]"/>
+            <xs:enumeration value="CART[N][PRICE]"/>
+            <xs:enumeration value="CART[N][QUANTITY]"/>
+            <xs:enumeration value="CART[N][TAX]"/>
+            <xs:enumeration value="CLIENTADDRESS"/>
+            <xs:enumeration value="CLIENTDOB"/>
+            <xs:enumeration value="CLIENTEMAIL"/>
+            <xs:enumeration value="CLIENTGENDER"/>
+            <xs:enumeration value="CLIENTIDENT"/>
+            <xs:enumeration value="CLIENTIP"/>
+            <xs:enumeration value="CLIENTREFERRER"/>
+            <xs:enumeration value="CLIENTUSERAGENT"/>
+            <xs:enumeration value="CREATEALIAS"/>
+            <xs:enumeration value="DESCRIPTION"/>
+            <xs:enumeration value="DISPLAYCREATEALIAS"/>
+            <xs:enumeration value="EXTRADATA"/>
+            <xs:enumeration value="HASH"/>
+            <xs:enumeration value="HIDECARDFULLNAME"/>
+            <xs:enumeration value="HIDECLIENTEMAIL"/>
+            <xs:enumeration value="IBAN"/>
+            <xs:enumeration value="IBANORIGIN"/>
+            <xs:enumeration value="IDENTIFICATIONDOCID"/>
+            <xs:enumeration value="IDENTIFICATIONDOCTYPE"/>
+            <xs:enumeration value="IDENTIFIER"/>
+            <xs:enumeration value="LANGUAGE"/>
+            <xs:enumeration value="METADATA"/>
+            <xs:enumeration value="OPERATIONTYPE"/>
+            <xs:enumeration value="ORDERID"/>
+            <xs:enumeration value="SHIPTOADDRESS"/>
+            <xs:enumeration value="SHIPTOCITY"/>
+            <xs:enumeration value="SHIPTOCOUNTRY"/>
+            <xs:enumeration value="SHIPTOFIRSTNAME"/>
+            <xs:enumeration value="SHIPTOLASTNAME"/>
+            <xs:enumeration value="SHIPTOPHONE"/>
+            <xs:enumeration value="SHIPTOPOSTALCODE"/>
+            <xs:enumeration value="TIMEZONE"/>
+            <xs:enumeration value="TRANSACTIONEXPIRATIONDATE"/>
+            <xs:enumeration value="TRANSACTIONID"/>
+            <xs:enumeration value="VERSION"/>
+            <xs:enumeration value="VME"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
