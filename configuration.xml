@@ -440,8 +440,8 @@
                     <operations>
                         <operation>capture</operation>
                         <operation>refund</operation>
-                        <operation>partial-refund</operation>
-                        <operation>multiple-refund</operation>
+                        <operation>partial_refund</operation>
+                        <operation>multiple_refund</operation>
                     </operations>
 
                     <!-- Parameter set's compatible options -->
@@ -493,7 +493,7 @@
             <code>amex</code>
             <logo_url>http://site/logo.jpg</logo_url>
             <labels>
-                <label language="fr">CB - VISA - MC (Zone france)</label>
+                <label language="fr">American Express</label>
             </labels>
 
             <currencies>
@@ -676,8 +676,8 @@
                     <operations>
                         <operation>capture</operation>
                         <operation>refund</operation>
-                        <operation>partial-refund</operation>
-                        <operation>multiple-refund</operation>
+                        <operation>partial_refund</operation>
+                        <operation>multiple_refund</operation>
                     </operations>
 
                     <!-- Parameter set's compatible options -->
@@ -947,8 +947,8 @@
                     <operations>
                         <operation>capture</operation>
                         <operation>refund</operation>
-                        <operation>partial-refund</operation>
-                        <operation>multiple-refund</operation>
+                        <operation>partial_refund</operation>
+                        <operation>multiple_refund</operation>
                     </operations>
 
                     <!-- Parameter set's compatible options -->
@@ -1160,8 +1160,8 @@
                     <!-- Parameter set concerned operations -->
                     <operations>
                         <operation>refund</operation>
-                        <operation>partial-refund</operation>
-                        <operation>multiple-refund</operation>
+                        <operation>partial_refund</operation>
+                        <operation>multiple_refund</operation>
                         <operation>capture</operation>
                     </operations>
 
@@ -2056,14 +2056,6 @@
                             <required>yes</required>
                         </parameter>
                         <parameter>
-                            <code>IDENTIFICATIONDOCID</code>
-                            <required>no</required>
-                        </parameter>
-                        <parameter>
-                            <code>IDENTIFICATIONDOTYPE</code>
-                            <required>no</required>
-                        </parameter>
-                        <parameter>
                             <code>LANGUAGE</code>
                             <required>yes</required>
                         </parameter>
@@ -2240,7 +2232,7 @@
                             <required>yes</required>
                         </parameter>
                         <parameter>
-                            <code>IDENTIFICATIONDOTYPE</code>
+                            <code>IDENTIFICATIONDOCTYPE</code>
                             <required>yes</required>
                         </parameter>
                         <parameter>
@@ -2321,8 +2313,8 @@
                     <operations>
                         <operation>capture</operation>
                         <operation>refund</operation>
-                        <operation>partial-refund</operation>
-                        <operation>multiple-refund</operation>
+                        <operation>partial_refund</operation>
+                        <operation>multiple_refund</operation>
                     </operations>
 
                     <!-- Parameter set's compatible options -->
